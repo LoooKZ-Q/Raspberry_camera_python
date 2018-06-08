@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Pi picture</title>
+        <style>
+            body{
+                margin: 0px;
+                padding: 0px;
+                background: #555555;
+            }
+            h1{
+                text-align: center;
+                color: aliceblue;
+            }
+            .upper{
+                width: 660px;
+                height: 600px;
+                margin: 0 auto;
+                margin-top: 100px;
+            }
+            img{
+                width: 640px;
+                height: 480px;
+                border: 10px solid #ddd;
+            }
+            .inner{
+                font-size: 0px;
+            }
+            a{
+                display: inline-block;
+                background: rgb(112, 112, 221);
+                color: beige;
+                text-decoration: none;
+                width: 328px;
+                font-weight: bolder;
+                text-align: center;
+                border: 1px solid black;
+                font-size: 16px;
+            }
+            a:hover{
+                background: goldenrod;
+                color: black;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var oNum1 = document.getElementById("num1")
+                var oNum2 = document.getElementById("num2")
+                
+                oNum2.onclick = function(){
+                    alert("over暂未添加功能,额~")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="upper">
+            <h1>Raspberry pi 截图监控</h1>
+            <img src="cut.jpg" alt="">
+            <div class="inner">
+                <a id="num1" href="./index.html">刷新画面</a>
+                <a id="num2" href="###">其他操作</a>
+        </div>
+    </body>
+</html>
