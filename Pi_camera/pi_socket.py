@@ -30,7 +30,7 @@ class HtmlServer(object):
         path_data = self.cli_socket.recv(1024).decode("utf-8").split("\r\n")[0]
         if path_data:
             path = re.match(r"\w+\s(.+)\s", path_data).group(1)
-            path = os.getcwd() + "/www" + path
+            path = os.getcwd() + path
             self.send_data(path, self.cli_socket)
 
     def send_data(self, path, cli_socket):
@@ -47,15 +47,15 @@ class HtmlServer(object):
         # 判断路径是否存在,否返回404错误
         if not os.path.exists(path):
             response_line = "HTTP1.1 404 Not Found\r\n"
-            response_body1 = "<h1>ERROR NOT EXISTS</h1>".encode()
+            response_body1 = "<h1>ERROR not exists</h1>".encode()
         else:
             # 判断path是否是文件,是
             if os.path.isfile(path):
-                # 判断path的文件是不是video.html 视频界面,否,直接打开页面
-                if not os.path.basename(path) == "video.html":
-                    with open(path, "rb") as f:
-                        response_body1 = self.open_file(f, response_body)
-                else:
+                # # 判断path的文件是不是video.html 视频界面,否,直接打开页面
+                # if not os.path.basename(path) == "video.html":
+                #     with open(path, "rb") as f:
+                #         response_body1 = self.open_file(f, response_body)
+                # else:
                     # 如果是video ,调用树莓派相机进行拍照,并返回网页
                     self.get_picture.take_picture()
                     with open(path, "rb") as f:
